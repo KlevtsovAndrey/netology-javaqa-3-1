@@ -74,7 +74,7 @@ class RadioTest {
     }
 
     @Test
-    public void increasedVolumeShouldBeEqualTo10(){
+    public void increasedVolumeShouldBeEqualTo5(){
         Radio radio = new Radio();
         for (int i = 0; i < 5; i++) {
             radio.increaseVolume();
@@ -92,7 +92,7 @@ class RadioTest {
     }
 
     @Test
-    public void decreasedVolumeShouldBeEqualTo0(){
+    public void decreasedVolumeShouldBeEqualTo4(){
         Radio radio = new Radio();
         for (int i = 0; i < 5; i++) {
             radio.increaseVolume();
