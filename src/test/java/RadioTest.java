@@ -3,6 +3,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     @Test
+    public void defaultNumberOfRadioStationsShouldBeEqualTo10() {
+        Radio radio = new Radio();
+        assertEquals(10, radio.getNumberOfRadioStations());
+    }
+
+    @Test
+    public void changedNumberOfRadioStationsShouldBeEqualTo100() {
+        Radio radio = new Radio(100);
+        assertEquals(100, radio.getNumberOfRadioStations());
+    }
+
+    @Test
     public void nextStationShouldBeEqualTo9() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(8);
@@ -11,9 +23,18 @@ class RadioTest {
     }
 
     @Test
+    public void nextStationShouldBeEqualTo16() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        radio.next();
+        assertEquals(16, radio.getCurrentRadioStation());
+    }
+
+
+    @Test
     public void nextStationShouldBeEqualTo0() {
-        Radio radio = new Radio();
-        radio.setCurrentRadioStation(9);
+        Radio radio = new Radio(100);
+        radio.setCurrentRadioStation(99);
         radio.next();
         assertEquals(0, radio.getCurrentRadioStation());
     }
@@ -35,7 +56,7 @@ class RadioTest {
     }
 
     @Test
-    public void prevStationShouldBeEqualTo9() {
+    public void prevStationShouldBeEqualTo99() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
         radio.prev();
@@ -85,10 +106,10 @@ class RadioTest {
     @Test
     public void increasedVolumeShouldNotBeHigherThan10(){
         Radio radio = new Radio();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 110; i++) {
             radio.increaseVolume();
         }
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
