@@ -23,6 +23,15 @@ class RadioTest {
     }
 
     @Test
+    public void nextStationShouldBeEqualTo16() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        radio.next();
+        assertEquals(16, radio.getCurrentRadioStation());
+    }
+
+
+    @Test
     public void nextStationShouldBeEqualTo0() {
         Radio radio = new Radio(100);
         radio.setCurrentRadioStation(99);
